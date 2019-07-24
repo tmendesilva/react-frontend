@@ -23,7 +23,7 @@ export default class Box extends Component {
 
     subscribeToNewFiles = () => {
         const box = this.props.match.params.id;
-        const io = socket('http://sagat-node-backend.herokuapp.com');
+        const io = socket('https://sagat-node-backend.herokuapp.com');
         io.emit('connectRoom', box);
         io.on('file', data => {
             this.setState({ box: {...this.state.box, files: [ data, ...this.state.box.files]}});
