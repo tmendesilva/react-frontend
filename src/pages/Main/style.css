@@ -39,3 +39,44 @@
 #main-container form button:hover{
     opacity: 0.8;
 }
+
+#main-container #form-container{
+    padding-right: 20px;
+}
+
+#main-container #boxes-container{
+    padding-left: 10px;
+    width: 300px;
+    height: 360px;
+    overflow-y: auto;
+    border-left: 1px solid #ddd;
+}
+
+#main-container #boxes-container ul{
+    margin: 5px;
+    list-style: none;
+}
+
+#main-container #boxes-container a.box-info{
+    padding: 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    height: 25px;
+    border-bottom: 1px solid #ddd;
+    background-color: #CEEAFF;
+}
+
+#main-container #boxes-container a.box-info:hover{
+    opacity: 0.8;
+}
+
+#main-container #boxes-container a.box-info span{
+    color: #0081f2
+}
+
+#main-container #boxes-container a.box-info span.box-file-count{
+    font-size: 80%;
+    color: #999;
+}

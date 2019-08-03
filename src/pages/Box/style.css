@@ -63,3 +63,8 @@
     margin-left: 10px;
     color: #333;
 }
+
+#box-container ul li span{
+    font-size: 80%;
+    color: #999;
+}

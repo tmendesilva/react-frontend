@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import api from '../../services/api';
 
-import {MdInsertDriveFile} from 'react-icons/md';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFile } from '@fortawesome/free-regular-svg-icons';
+
 import {distanceInWords} from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import Dropzone from 'react-dropzone';
@@ -23,10 +25,12 @@ export default class Box extends Component {
 
     subscribeToNewFiles = () => {
         const box = this.props.match.params.id;
-        const io = socket('https://sagat-node-backend.herokuapp.com');
+        const io = socket();
         io.emit('connectRoom', box);
         io.on('file', data => {
-            this.setState({ box: {...this.state.box, files: [ data, ...this.state.box.files]}});
+            this.setState({
+                box: {...this.state.box, files: [data, ...this.state.box.files]},
+            });
         });
     };
 
@@ -60,7 +64,7 @@ export default class Box extends Component {
                     {this.state.box.files && this.state.box.files.map(file => (
                         <li key={file._id}>
                             <a className="file-info" href={file.url} rel="noopener">
-                                <MdInsertDriveFile size={24} color="#a5cfff"/>
+                                <FontAwesomeIcon icon={faFile} color="#a5cfff"/>
                                 <strong>{file.title}</strong>
                             </a>
                             <span>Há {distanceInWords(file.createdAt, new Date(), {
